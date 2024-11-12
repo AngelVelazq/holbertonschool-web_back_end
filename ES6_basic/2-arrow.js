@@ -1,4 +1,5 @@
 export default function getNeighborhoodsList() {
+  /* eslint-disable no-undef */
     this.sanFranciscoNeighborhoods = ['SOMA', 'Union Square'];
   
     this.addNeighborhood = (newNeighborhood) => {
