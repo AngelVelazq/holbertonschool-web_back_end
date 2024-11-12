@@ -1,3 +1,3 @@
-export default function getSumOfHoods(...numbers) {
-    return numbers.reduce((total, number) => total + number);
-  }
+export default function returnHowManyArguments(...args) {
+    return args.length;
+}
