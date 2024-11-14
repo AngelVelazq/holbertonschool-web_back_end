@@ -1,4 +1,4 @@
-import Classroom from './0-classroom.js';
+import Classroom from './0-classroom';
 
 function initializeRooms() {
   return [
