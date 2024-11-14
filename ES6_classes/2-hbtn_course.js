@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 class HolbertonCourse {
   constructor(name, length, students) {
     if (typeof name !== 'string') {
