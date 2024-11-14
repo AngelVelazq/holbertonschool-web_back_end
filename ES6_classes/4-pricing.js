@@ -32,3 +32,4 @@ class Pricing {
 }
 
 export default Pricing;
+export Currency
