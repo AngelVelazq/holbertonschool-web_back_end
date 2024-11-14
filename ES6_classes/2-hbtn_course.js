@@ -1,17 +1,18 @@
 class HolbertonCourse {
   constructor(name, length, students) {
     if (typeof name !== 'string') {
-      throw new Error('Name must be a string');
+      throw new TypeError('Name must be a string');
     }
-    if (typeof length !== 'number') {
-      throw new Error('Length must be a number');
-    }
-    if (!Array.isArray(students)) {
-      throw new Error('Students must be an array');
-    }
-
     this._name = name;
+
+    if (typeof length !== 'number') {
+      throw new TypeError('Length must be a number');
+    }
     this._length = length;
+
+    if (!Array.isArray(students) || !students.every(student => typeof student === 'string')) {
+      throw new TypeError('Students must be an array of strings');
+    }
     this._students = students;
   }
 
@@ -21,7 +22,7 @@ class HolbertonCourse {
 
   set name(value) {
     if (typeof value !== 'string') {
-      throw new Error('Name must be a string');
+      throw new TypeError('Name must be a string');
     }
     this._name = value;
   }
@@ -32,7 +33,7 @@ class HolbertonCourse {
 
   set length(value) {
     if (typeof value !== 'number') {
-      throw new Error('Length must be a number');
+      throw new TypeError('Length must be a number');
     }
     this._length = value;
   }
@@ -42,21 +43,11 @@ class HolbertonCourse {
   }
 
   set students(value) {
-    if (!Array.isArray(value)) {
-      throw new Error('Students must be an array');
+    if (!Array.isArray(value) || !value.every(student => typeof student === 'string')) {
+      throw new TypeError('Students must be an array of strings');
     }
     this._students = value;
   }
 }
 
-// Usage example
-const course = new HolbertonCourse('JavaScript', 12, ['Alice', 'Bob', 'Charlie']);
-console.log(course.name); // Output: JavaScript
-console.log(course.length); // Output: 12
-console.log(course.students); // Output: ['Alice', 'Bob', 'Charlie']
-course.name = 'Python';
-console.log(course.name); // Output: Python
-course.length = 10;
-console.log(course.length); // Output: 10
-course.students = ['Alice', 'Bob'];
-console.log(course.students); // Output: ['Alice', 'Bob']
+export default HolbertonCourse;
