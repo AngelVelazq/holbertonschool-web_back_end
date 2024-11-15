@@ -1,42 +1,42 @@
 class Building {
-    constructor(sqft) {
-      if (new.target === Building) {
-        throw new Error("Building is an abstract class and cannot be instantiated directly.");
-      }
-  
-      this._sqft = sqft;
+    def __init__(self, sqft) {
+        self._sqft = sqft
     }
-  
-    // Getter for sqft
-    get sqft() {
-      return this._sqft;
+
+    @property
+    def sqft(self) {
+        return self._sqft
     }
-  
-    // Abstract method
-    evacuationWarningMessage() {
-      throw new Error("Class extending Building must override evacuationWarningMessage");
+
+    def evacuationWarningMessage(self) {
+        raise NotImplementedError("Class extending Building must override evacuationWarningMessage")
     }
-  }
-  
-  // Example of an extended class that properly implements evacuationWarningMessage
-  class OfficeBuilding extends Building {
-    evacuationWarningMessage() {
-      return "Please evacuate the building immediately!";
+}
+
+class OfficeBuilding(Building) {
+    def __init__(self, sqft) {
+        super().__init__(sqft)
     }
-  }
-  
-  // Testing the classes
-  try {
-    const office = new OfficeBuilding(5000);
-    console.log(office.sqft); // Output: 5000
-    console.log(office.evacuationWarningMessage()); // Output: Please evacuate the building immediately!
-  } catch (error) {
-    console.error(error.message);
-  }
-  
-  try {
-    const building = new Building(3000); // Should throw an error
-  } catch (error) {
-    console.error(error.message); // Output: Building is an abstract class and cannot be instantiated directly.
-  }
-  
+
+    def evacuationWarningMessage(self) {
+        return "Please evacuate the office building immediately."
+    }
+}
+
+class ResidentialBuilding(Building) {
+    def __init__(self, sqft) {
+        super().__init__(sqft)
+    }
+}
+
+try {
+    office = OfficeBuilding(1000)
+    console.log(office.sqft)
+    console.log(office.evacuationWarningMessage())
+
+    residential = ResidentialBuilding(500)
+    console.log(residential.sqft)
+    console.log(residential.evacuationWarningMessage())
+} except (e) {
+    console.log(e)
+}
