@@ -6,8 +6,7 @@ This module contains an example of an async comprehension.
 import asyncio
 import random
 from typing import AsyncIterator, List
-
-from generator import async_generator
+async_generator = __import__('0-async_generator').async_generator
 
 
 async def async_comprehension() -> List[int]:
