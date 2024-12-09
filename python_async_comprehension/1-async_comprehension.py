@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
+"""
+This module contains an example of an async comprehension.
+"""
 
 import asyncio
 import random
 from typing import AsyncIterator, List
 
-from previous_task import async_generator  # Import from 0-async_generator.py
+from async_generator import async_generator
 
 
 async def async_comprehension() -> List[int]:
