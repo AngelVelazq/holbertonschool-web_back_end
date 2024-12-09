@@ -9,7 +9,7 @@ import asyncio
 import random
 
 
-async def async_generator() -> AsyncIterator[int]:
+async def async_generator():
     """
     Asynchronous generator that yields random numbers between 0 and 10.
 
@@ -21,9 +21,12 @@ async def async_generator() -> AsyncIterator[int]:
         yield random.randint(0, 10)
 
 
-async def main() -> None:
+async def main():
     """
     Example usage of async_generator.
     """
     async for num in async_generator():
         print(num)
+
+if __name__ == "__main__":
+    asyncio.run(main())
