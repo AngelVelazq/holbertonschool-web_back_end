@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""
+This module contains an asynchronous generator that yields random numbers.
+"""
 
 import asyncio
 import random
