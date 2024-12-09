@@ -7,7 +7,7 @@ import asyncio
 import random
 from typing import AsyncIterator, List
 
-from async_generator import async_generator
+from async_generator import async_generator as async_gen
 
 
 async def async_comprehension() -> List[int]:
