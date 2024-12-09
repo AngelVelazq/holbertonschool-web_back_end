@@ -1,15 +1,8 @@
 #!/usr/bin/env python3
 """
-Example demonstrating the usage of an asynchronous generator.
-
-This module shows how to define an asynchronous generator and how to use it
-in an asynchronous for loop.
-
 The async_generator function is an asynchronous generator that generates
 random numbers between 0 and 10. The main function shows how to use an
 asynchronous generator in an asynchronous for loop.
-
-The main function is run with asyncio.run.
 """
 
 import asyncio
