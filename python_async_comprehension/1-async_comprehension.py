@@ -7,7 +7,7 @@ import asyncio
 import random
 from typing import AsyncIterator, List
 
-from async_generator import async_generator as async_gen
+from generator import async_generator
 
 
 async def async_comprehension() -> List[int]:
@@ -19,14 +19,3 @@ async def async_comprehension() -> List[int]:
     """
     numbers = [num async for num in async_generator()]
     return numbers
-
-
-async def main() -> None:
-    """
-    Example usage of async_comprehension.
-    """
-    numbers = await async_comprehension()
-    print(numbers)
-
-if __name__ == "__main__":
-    asyncio.run(main())
