@@ -32,15 +32,10 @@ class Server:
 
         return self.__dataset
 
-
-def get_page(data: list, page: int = 1, page_size: int = 10) -> list:
-    """Get the items for the current page."""
-    assert isinstance(page, int) and page > 0
-    """page must be an integer greater than 0"""
-    assert isinstance(page_size, int) and page_size > 0
-    """page_size must be an integer greater than 0"""
-
-    start, end = index_range(page, page_size)
-    if start >= len(data) or end > len(data):
-        return []
-    return data[start:end]
+    def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """Displays the correct amount of items per page"""
+        assert type(page) is int and page > 0
+        assert type(page_size) is int and page_size > 0
+        data = Server.dataset(self)
+        pp = index_range(page, page_size)
+        return data[pp[0]:pp[1]]
