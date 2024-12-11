@@ -45,6 +45,7 @@ class Server:
         """Returns a dictionary containing pagination metadata."""
         data = self.get_page(page, page_size)
         total_pages = math.ceil(len(self.dataset()) / page_size)
+
         return {
         'page_size': page_size,
         'page': page,
