@@ -3,10 +3,10 @@
 
 import csv
 import math
-from typing import List, Tuple
+from typing import List, Tuple, Dict
 
 
-def index_range(page: int, page_size: int) -> tuple:
+def index_range(page: int, page_size: int) -> Tuple:
     """Calculate the start and end index for pagination."""
     start = (page - 1) * page_size
     end = page * page_size
