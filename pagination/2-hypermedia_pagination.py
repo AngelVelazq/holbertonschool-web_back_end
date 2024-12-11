@@ -6,7 +6,7 @@ import math
 from typing import List, Tuple, Dict
 
 
-def index_range(page: int, page_size: int) -> Tuple:
+def index_range(page: int, page_size: int) -> tuple:
     """Calculate the start and end index for pagination."""
     start = (page - 1) * page_size
     end = page * page_size
@@ -41,16 +41,22 @@ class Server:
         return data[pp[0]:pp[1]]
     
     
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
-        """Returns a dictionary containing pagination metadata."""
-        data = self.get_page(page, page_size)
-        total_pages = math.ceil(len(self.dataset()) / page_size)
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
+        """ Displays the page information """
+        data = Server.dataset(self)
+        total_pages = len(data) // page_size
+        next_page = None
+        if page < total_pages:
+            next_page = page + 1
+        prev_page = None
+        if page > 1:
+            prev_page = page - 1
 
-        return {
-        'page_size': page_size,
-        'page': page,
-        'data': data,
-        'next_page': page + 1 if page < total_pages else None,
-        'prev_page': page - 1 if page > 1 else None,
-        'total_pages': total_pages,
-    }
+        page_info = {
+            "page_size": page_size,
+            "page": page,
+            "data": self.get_page(page, page_size),
+            "next_page": next_page,
+            "prev_page": prev_page,
+            "total_pages": total_pages
+        }
