@@ -40,10 +40,5 @@ def get_page(data: list, page: int = 1, page_size: int = 10) -> list:
     return data[start:end]
 
 
-# Assuming data is already provided
-data = [...]  # replace with actual data
-
-# Test the get_page function
-print(get_page(data))
-print(get_page(data, 2))
-print(get_page(data, 3, 5))
+filename = "data.csv"
+data = read_csv_file(filename)
