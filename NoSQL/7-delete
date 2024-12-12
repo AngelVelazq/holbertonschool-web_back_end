@@ -1,4 +1,4 @@
-// deletes documents with name Holberton school
-mongo $1 --eval "db.school.remove({
-name: 'Holberton School'
-})"
+// delete all documents with the name=holberton
+db.school.deleteMany({
+    "name": "Holberton school"
+})
